@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hebrew Typing Practice</title>
+    <link rel="stylesheet" href="css\tts.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>אפליקציה לתרגול הקלדה בעברית</h1>
+            <p>Hebrew Typing Practice App with Flashcard Integration</p>
+        </div>
+
+        <div class="input-section">
+            <h2>הכנס את הטקסט שלך לתרגול:</h2>
+            <div class="usage-tip">
+                💡 טיפ: לחץ על מילים שאינך יודע בזמן התרגול כדי להוסיפן לכרטיסיות הלימוד שלך
+            </div>
+            <textarea id="textInput" placeholder="הדבק כאן את הטקסט העברי שברצונך להקליד..."></textarea>
+            <div class="button-group">
+                <button onclick="startPractice()">התחל תרגול</button>
+                <button onclick="resetPractice()">איפוס</button>
+                <button class="flashcard-button" onclick="openFlashcardPanel()">
+                    📚 הוסף לכרטיסיות
+                    <span id="selectedWordsCount" class="word-count-badge hidden">0</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="practice-section" id="practiceSection">
+            <div class="timer-controls">
+                <button id="timerButton" class="timer-button" onclick="toggleTimer()">התחל שעון עצר</button>
+                <button onclick="resetTimer()">איפוס שעון עצר</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value timer" id="timerDisplay">00:00</div>
+                    <div class="stat-label">זמן</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="accuracy">100%</div>
+                    <div class="stat-label">דיוק</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="progress">0%</div>
+                    <div class="stat-label">התקדמות</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="errors">0</div>
+                    <div class="stat-label">שגיאות</div>
+                </div>
+            </div>
+
+            <div class="text-display" id="textDisplay"></div>
+            
+            <textarea id="typingInput" placeholder="התחל להקליד כאן..." disabled rows="4"></textarea>
+            
+            <div id="message" class="message hidden"></div>
+        </div>
+    </div>
+
+    <!-- Flashcard Integration Panel -->
+    <div class="flashcard-panel" id="flashcardPanel">
+        <div class="flashcard-content">
+            <div class="flashcard-header">
+                <h2>📚 הוסף מילים לכרטיסיות הלימוד</h2>
+                <p>בחר מילים ממעלה או הוסף מילה חדשה</p>
+            </div>
+
+            <div class="quick-select-words" id="quickSelectSection">
+                <div class="quick-select-title">מילים שנבחרו מהטקסט:</div>
+                <div class="selected-words-list" id="selectedWordsList">
+                    <!-- Selected words will appear here -->
+                </div>
+                <button class="clear-selection-btn" onclick="clearSelectedWords()">נקה בחירה</button>
+            </div>
+
+            <div class="word-input-group">
+                <label for="hebrewWordInput">מילה בעברית:</label>
+                <input type="text" id="hebrewWordInput" class="word-input hebrew" placeholder="הקלד מילה בעברית...">
+            </div>
+
+            <div class="word-input-group">
+                <label for="englishWordInput">תרגום באנגלית:</label>
+                <input type="text" id="englishWordInput" class="word-input" placeholder="Enter English translation...">
+            </div>
+
+            <div class="session-selector">
+                <label>בחר סשן קיים או צור חדש:</label>
+                <input type="text" id="sessionNameInput" class="word-input" placeholder="שם הסשן החדש או בחר מהרשימה...">
+                <div class="session-list" id="sessionList">
+                    <!-- Existing sessions will be loaded here -->
+                </div>
+            </div>
+
+            <div class="panel-buttons">
+                <button class="panel-btn primary" onclick="addToFlashcards()">הוסף לכרטיסיות</button>
+                <button class="panel-btn secondary" onclick="closeFlashcardPanel()">ביטול</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-helper">
+        לחץ על מילים בטקסט כדי לסמן אותן לכרטיסיות
+    </div>
+
+    <script src="js\typing.js"></script>
+</body>
+</html>
