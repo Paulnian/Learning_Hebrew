@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hebrew-English Flashcard Generator</title>
+    <link rel="stylesheet" href="css\flashcard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hebrew-English Flashcards</h1>
+            <p>Create, save, and manage your Hebrew vocabulary sessions</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="sessions-section">
+                <h2 class="section-title">Sessions</h2>
+                
+                <input type="text" class="session-input" id="sessionNameInput" placeholder="Enter session name..." maxlength="50">
+                <button class="session-btn" id="createSessionBtn">Create New Session</button>
+                
+                <div class="sessions-list" id="sessionsList">
+                    <div style="text-align: center; color: #999; padding: 20px; font-size: 0.9rem;">
+                        No sessions yet. Create your first session!
+                    </div>
+                </div>
+                
+                <button class="session-btn secondary" id="exportBtn">Export Sessions</button>
+                <input type="file" id="importInput" accept=".json" style="display: none;">
+                <button class="session-btn secondary" id="importBtn">Import Sessions</button>
+                <button class="session-btn" id="reviewMissedBtn" style="background: #e74c3c;">📝 Review Missed Words</button>
+                <button class="session-btn" id="showMissedBtn" style="background: #f39c12;">👁️ Show Missed Words</button>
+            </div>
+
+            <div class="input-section">
+                <h2 class="section-title">Add Hebrew Words</h2>
+                
+                <div id="currentSessionInfo"></div>
+                
+                <div class="session-controls">
+                    <button class="session-control-btn save-session-btn" id="saveSessionBtn" disabled>Save Session</button>
+                    <button class="session-control-btn add-to-session-btn" id="addToSessionBtn" disabled>Add to Session</button>
+                    <button class="session-control-btn clear-btn" id="clearBtn">Clear</button>
+                </div>
+                
+                <textarea 
+                    class="input-area" 
+                    id="hebrewInput" 
+                    placeholder="הדבק כאן את המילים בעברית
+כל מילה בשורה נפרדת
+
+לדוגמה:
+מאפיין
+לוויסות
+האיברים"
+                ></textarea>
+                <button class="generate-btn" id="generateBtn">Generate Flashcards</button>
+                <button class="generate-btn" id="generateSentenceBtn" style="margin-top: 10px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">Generate Example Sentence</button>
+                <div id="sentenceContainer" style="margin-top: 20px;"></div>
+                <div id="errorMessage"></div>
+            </div>
+            
+            <div class="flashcard-section">
+                <h2 class="section-title">Flashcards</h2>
+                <div id="flashcardContainer">
+                    <div style="text-align: center; color: #999; padding: 50px;">
+                        Create a session and add Hebrew words to start studying!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js\flashcard.js"></script>
+</body>
+</html>
