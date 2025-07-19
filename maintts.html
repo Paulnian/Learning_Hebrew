@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hebrew Dictation Practice</title>
+    <link rel="stylesheet" href="css\tts.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>תרגול כתיבה עברית</h1>
+            <p>תרגלו כתיבה בעברית באמצעות הקראה והכתבה עם שליטה מלאה</p>
+        </div>
+
+        <div class="content">
+            <div class="input-section">
+                <h2>הדביקו כאן את הטקסט לתרגול:</h2>
+                <textarea id="textInput" placeholder="הדביקו כאן את הטקסט העברי שברצונכם לתרגל..."></textarea>
+                
+                <div class="control-section">
+                    <h3>הגדרות הקראה:</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="segmentType" value="words" checked>
+                            מספר מילים קבוע
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="segmentType" value="comma">
+                            עד פסיק
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="segmentType" value="period">
+                            עד נקודה
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="segmentType" value="sentence">
+                            משפט שלם
+                        </label>
+                    </div>
+                    
+                    <div class="word-count-input" id="wordCountSection">
+                        <label>מספר מילים:</label>
+                        <input type="number" id="wordCount" min="1" max="20" value="3">
+                    </div>
+                </div>
+                
+                <div class="control-section">
+                    <h3>מצב תיקון:</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="correctionMode" value="realtime" checked>
+                            בזמן אמת (אות אחר אות)
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="correctionMode" value="complete">
+                            לאחר השלמה (Enter לבדיקה)
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn-primary" onclick="startPractice()">התחל תרגול</button>
+                    <button class="btn-secondary" onclick="clearText()">נקה טקסט</button>
+                </div>
+            </div>
+
+            <div id="practiceArea" class="practice-section" style="display: none;">
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="currentSegmentNum">0</div>
+                        <div class="stat-label">קטע נוכחי</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalSegments">0</div>
+                        <div class="stat-label">סה"כ קטעים</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="correctCount">0</div>
+                        <div class="stat-label">נכונים</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="accuracy">0%</div>
+                        <div class="stat-label">דיוק</div>
+                    </div>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <div class="current-sentence">
+                    <div class="sentence-counter">
+                        קטע <span id="segmentCounter">1</span> מתוך <span id="totalSegmentCount">0</span>
+                    </div>
+                    <div class="segment-info" id="segmentInfo"></div>
+                    <div class="typing-feedback" id="typingFeedback"></div>
+                    <div class="sentence-text" id="currentSegment"></div>
+                    <div class="controls">
+                        <button class="btn-primary" onclick="playCurrentSegment()">🔊 השמע</button>
+                        <button class="btn-success" onclick="manualCheckAnswer()" id="checkBtn" style="display: none;">בדוק תשובה</button>
+                        <button class="btn-secondary" onclick="retrySegment()" id="retryBtn" style="display: none;">נסה שוב</button>
+                        <button class="btn-success" onclick="nextSegment()" id="nextBtn" style="display: none;">קטע הבא</button>
+                    </div>
+                </div>
+
+                <div>
+                    <textarea id="userInput" placeholder="כתבו כאן מה ששמעתם..." rows="3"></textarea>
+                </div>
+
+                <div id="feedback" class="feedback" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js\tts.js"></script>
+</body>
+</html>
