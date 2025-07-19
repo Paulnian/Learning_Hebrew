@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hebrew Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="hero-section">
+        <h1 class="hero-title">מרכז לימוד עברית</h1>
+        <p class="hero-subtitle">Hebrew Learning Hub</p>
+        <p class="hero-description">
+            Welcome to your comprehensive Hebrew learning platform. Choose from three powerful tools designed to enhance your Hebrew language skills through interactive practice and modern learning techniques.
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="apps-grid">
+            <div class="app-card" onclick="launchApp('maintyping.html')">
+                <div class="app-icon typing-icon">⌨️</div>
+                <h2 class="app-title">Hebrew Typing Practice</h2>
+                <p class="app-description">
+                    Improve your Hebrew typing speed and accuracy with real-time feedback and comprehensive statistics.
+                </p>
+                <ul class="app-features">
+                    <li>Real-time character-by-character feedback</li>
+                    <li>Accuracy and progress tracking</li>
+                    <li>Built-in timer with stop/start controls</li>
+                    <li>Custom text input for practice</li>
+                    <li>Visual error highlighting</li>
+                    <li>Typing speed analysis</li>
+                </ul>
+                <button class="launch-btn" onclick="event.stopPropagation(); launchApp('maintyping.html')">
+                    Launch Typing Practice
+                </button>
+            </div>
+
+            <div class="app-card" onclick="launchApp('maintts.html')">
+                <div class="app-icon tts-icon">🎤</div>
+                <h2 class="app-title">Hebrew Dictation Practice</h2>
+                <p class="app-description">
+                    Practice Hebrew listening and writing skills with advanced text-to-speech dictation exercises.
+                </p>
+                <ul class="app-features">
+                    <li>Advanced text-to-speech with Hebrew voices</li>
+                    <li>Flexible segment options (words, sentences)</li>
+                    <li>Real-time or complete correction modes</li>
+                    <li>Progress tracking and accuracy statistics</li>
+                    <li>Retry mechanism for difficult segments</li>
+                    <li>Customizable practice sessions</li>
+                </ul>
+                <button class="launch-btn" onclick="event.stopPropagation(); launchApp('maintts.html')">
+                    Launch Dictation Practice
+                </button>
+            </div>
+
+            <div class="app-card" onclick="launchApp('mainflashcard.html')">
+                <div class="app-icon flashcard-icon">🃏</div>
+                <h2 class="app-title">Hebrew Flashcards</h2>
+                <p class="app-description">
+                    Master Hebrew vocabulary with intelligent flashcard sessions. Create, manage, and practice with your own word collections.
+                </p>
+                <ul class="app-features">
+                    <li>Auto-translation from Hebrew to English</li>
+                    <li>Session management and progress tracking</li>
+                    <li>Typing practice with real-time feedback</li>
+                    <li>Text-to-speech pronunciation</li>
+                    <li>Missed words review system</li>
+                    <li>Example sentence generation</li>
+                </ul>
+                <button class="launch-btn" onclick="event.stopPropagation(); launchApp('mainflashcard.html')">
+                    Launch Flashcards
+                </button>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2 class="features-title">Why Choose Our Hebrew Learning Platform?</h2>
+            <div class="global-features">
+                <div class="global-feature">
+                    <span class="global-feature-icon">🎯</span>
+                    <h3>Targeted Learning</h3>
+                    <p>Each tool focuses on specific skills: vocabulary, typing, and listening comprehension</p>
+                </div>
+                <div class="global-feature">
+                    <span class="global-feature-icon">📊</span>
+                    <h3>Progress Tracking</h3>
+                    <p>Monitor your improvement with detailed statistics and performance analytics</p>
+                </div>
+                <div class="global-feature">
+                    <span class="global-feature-icon">🔧</span>
+                    <h3>Customizable</h3>
+                    <p>Adapt each tool to your learning style with flexible settings and options</p>
+                </div>
+                <div class="global-feature">
+                    <span class="global-feature-icon">💾</span>
+                    <h3>Session Management</h3>
+                    <p>Save your progress and continue learning across multiple sessions</p>
+                </div>
+                <div class="global-feature">
+                    <span class="global-feature-icon">🔊</span>
+                    <h3>Audio Support</h3>
+                    <p>Hebrew text-to-speech integration for pronunciation and listening practice</p>
+                </div>
+                <div class="global-feature">
+                    <span class="global-feature-icon">🌐</span>
+                    <h3>Modern Interface</h3>
+                    <p>Clean, responsive design that works perfectly on all devices</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Hebrew Learning Hub. Empowering Hebrew language learners worldwide.</p>
+        <p>Choose your learning path and start your Hebrew journey today!</p>
+        <div class="footer-links">
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Help</a>
+            <a href="#" class="footer-link">Contact</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
